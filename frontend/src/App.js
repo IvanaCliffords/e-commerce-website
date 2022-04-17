@@ -1,12 +1,35 @@
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import HomeScreen from "./screens/HomeScreen";
+import ProductScreen from "./screens/ProductScreen";
+import { Navbar, Container } from 'react-bootstrap';
+import { LinkContainer } from "react-router-bootstrap";
 function App() {
   return (
-    <div>
-      <header>
-        <a href="/">
-          E-commerce Website
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="d-flex flex-column site-container">
+        <header>
+          <Navbar bg="dark" variant="dark">
+            <Container>
+              <LinkContainer to="/">
+                <Navbar.Brand>E-commerce Website</Navbar.Brand>
+              </LinkContainer>
+            </Container>
+          </Navbar>
+        </header>
+        <main>
+          <Container>
+            <Routes>
+              <Route path="/product/:slug" element={<ProductScreen />} />
+              <Route path="/" element={<HomeScreen />} />
+            </Routes>
+          </Container>
+
+        </main>
+        <footer>
+          <div className="text-center">All rights reserved</div>
+        </footer>
+      </div>
+    </BrowserRouter>
   );
 }
 
