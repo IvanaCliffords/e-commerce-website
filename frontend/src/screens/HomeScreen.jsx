@@ -1,9 +1,9 @@
 import React, { useEffect, useReducer } from "react";
-// import data from "../data";
-import axios from "axios";
 import logger from "use-reducer-logger";
+import axios from "axios";
 import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product";
+import { Helmet } from "react-helmet-async";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -24,7 +24,6 @@ const HomeScreen = () => {
     loading: true,
     error: "",
   });
-
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: "FETCH_REQUEST" });
@@ -34,24 +33,26 @@ const HomeScreen = () => {
       } catch (err) {
         dispatch({ type: "FETCH_FAIL", payload: err.message });
       }
-
     };
     fetchData();
   }, []);
 
   return (
     <div>
+      <Helmet>
+        <title>E-commerce</title>
+      </Helmet>
       <h1>Feature Products</h1>
       <div className="products">
         {loading ? (
           <div>Loading...</div>
         ) : error ? (
-          <div>{error} </div>
+          <div>{error}</div>
         ) : (
           <Row>
             {products.map((product) => (
               <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
-                <Product product={product} />
+                <Product product={product}></Product>
               </Col>
             ))}
           </Row>
