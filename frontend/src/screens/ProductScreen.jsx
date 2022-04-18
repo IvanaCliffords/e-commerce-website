@@ -50,6 +50,7 @@ const ProductScreen = () => {
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {cart} = state;
+  
   const addToCartHandler = async  () => {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
@@ -70,7 +71,7 @@ const ProductScreen = () => {
   ) : error ? (
     <MessageBox variant="danger">{error}</MessageBox>
   ) : (
-    <div>
+    <div >
       <Row>
         <Col md={6}>
           <img className="img-large" src={product.image} alt={product.name} />

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Store } from "../Store";
 import { Helmet } from "react-helmet-async";
 import axios from "axios";
@@ -14,6 +14,7 @@ import {
 import MessageBox from "../components/MessageBox";
 
 const CartScreen = () => {
+  const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
     cart: { cartItems },
@@ -37,6 +38,10 @@ const CartScreen = () => {
       type: "CART_REMOVE_ITEM",
       payload: item,
     });
+  };
+
+  const checkoutHandler = () => {
+    navigate("/signin?redirect=/shipping");
   };
 
   return (
@@ -117,6 +122,7 @@ const CartScreen = () => {
                       type="button"
                       variant="primary"
                       disabled={cartItems.length === 0}
+                      onClick={checkoutHandler}
                     >
                       Proceed to checkout
                     </Button>

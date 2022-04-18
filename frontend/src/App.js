@@ -2,10 +2,11 @@ import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
-import { Navbar, Container, CarouselItem,  Nav, Badge } from 'react-bootstrap';
+import SignInScreen from "./screens/SignInScreen";
+import { Navbar, Container, Nav, Badge } from 'react-bootstrap';
 import { LinkContainer } from "react-router-bootstrap";
-import {useContext} from 'react';
-import {Store} from "./Store";
+import { useContext } from 'react';
+import { Store } from "./Store";
 
 
 
@@ -14,7 +15,7 @@ import {Store} from "./Store";
 function App() {
 
   const { state } = useContext(Store);
-  const {cart} = state;
+  const { cart } = state;
 
   return (
     <BrowserRouter>
@@ -32,7 +33,7 @@ function App() {
                     cart.cartItems.length > 0 && (
                       <Badge pill bg="danger">
                         {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                        
+
                       </Badge>
                     )
 
@@ -48,6 +49,8 @@ function App() {
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
+              <Route path="/signin" element={<SignInScreen />} />
+
               <Route path="/" element={<HomeScreen />} />
 
             </Routes>
