@@ -4,7 +4,7 @@ const data = {
     users: [
         {
             name: 'Ivana',
-            email: 'admin@example.com',
+            email: 'ivana.cliffords@gmail.com',
             password: bcrypt.hashSync('123456'),
             isAdmin: true 
         },
@@ -23,7 +23,7 @@ const data = {
             category: 'Shirts',
             image:'/images/p1.jpeg',
             price: 120,
-            countInStock: 0,
+            countInStock: 30,
             brand: 'Nike',
             rating: 4.5,
             numReviews: 10,
