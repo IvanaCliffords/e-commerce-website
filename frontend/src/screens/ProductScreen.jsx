@@ -73,10 +73,10 @@ const ProductScreen = () => {
   ) : (
     <div >
       <Row>
-        <Col md={6}>
-          <img className="img-large" src={product.image} alt={product.name} />
+        <Col md={4}>
+          <img className="img-large " src={product.image} alt={product.name} />
         </Col>
-        <Col md={3}>
+        <Col md={4}>
           <ListGroup variant="flush">
             <ListGroup.Item>
               <Helmet>
@@ -94,7 +94,7 @@ const ProductScreen = () => {
           <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
           <ListGroup.Item>Description: {product.description}</ListGroup.Item>
         </Col>
-        <Col md={3}>
+        <Col md={4}>
           <Card>
             <Card.Body>
               <ListGroup variant="flush">
@@ -120,7 +120,7 @@ const ProductScreen = () => {
                 {product.countInStock > 0 && (
                   <ListGroup.Item>
                     <div className="d-grid">
-                      <Button onClick={addToCartHandler} variant="primary">
+                      <Button onClick={addToCartHandler} variant="primary" className="product-button">
                         Add to Cart
                       </Button>
                     </div>

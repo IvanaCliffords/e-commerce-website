@@ -7,9 +7,6 @@ import { Helmet } from "react-helmet-async";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 
-
-
-
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_REQUEST":
@@ -47,7 +44,8 @@ const HomeScreen = () => {
       <Helmet>
         <title>Drippy's Store</title>
       </Helmet>
-      <h1>Feature Products</h1>
+      
+      <h1 className="home-title">Feature Products</h1>
       <div className="products">
         {loading ? (
           <LoadingBox />
@@ -56,7 +54,14 @@ const HomeScreen = () => {
         ) : (
           <Row>
             {products.map((product) => (
-              <Col key={product.slug} sm={6} md={3} lg={4} className="mb-3">
+              <Col
+                key={product.slug}
+                sm={12}
+                md={6}
+                lg={4}
+                xl={3}
+                className="mb-3"
+              >
                 <Product product={product}></Product>
               </Col>
             ))}

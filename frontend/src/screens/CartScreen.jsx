@@ -13,6 +13,8 @@ import {
 } from "react-bootstrap";
 import MessageBox from "../components/MessageBox";
 
+import { FiTrash2 } from "react-icons/fi";
+
 const CartScreen = () => {
   const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -61,15 +63,15 @@ const CartScreen = () => {
               {cartItems.map((item) => (
                 <ListGroup.Item key={item._id}>
                   <Row className="align-items-center">
-                    <Col md={4}>
+                    <Col md={5}>
                       <img
                         src={item.image}
                         alt={item.name}
-                        className="img-fluid rounded img-thumnail"
+                        className="img-fluid rounded img-thumbnail"
                       ></img>{" "}
                       <Link to={`/product/${item.slug}`}>{item.name}</Link>
                     </Col>
-                    <Col md={3}>
+                    <Col md={2}>
                       <Button
                         onClick={() =>
                           updateCartHandler(item, item.quantity - 1)
@@ -95,8 +97,9 @@ const CartScreen = () => {
                       <Button
                         variant="light"
                         onClick={() => removeItemHandler(item)}
+                        className="trash-button"
                       >
-                        <i className="fas fa-trash"></i>
+                        <FiTrash2 className="cart-trash" />
                       </Button>
                     </Col>
                   </Row>
@@ -123,6 +126,7 @@ const CartScreen = () => {
                       variant="primary"
                       disabled={cartItems.length === 0}
                       onClick={checkoutHandler}
+                      className="product-button"
                     >
                       Proceed to checkout
                     </Button>

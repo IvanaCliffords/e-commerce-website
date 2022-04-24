@@ -86,11 +86,11 @@ const SignUpScreen = () => {
           />
         </Form.Group>
         <div className="mb-3">
-          <Button type="submit">Sign Up</Button>
+          <Button type="submit" className="product-button">Sign Up</Button>
         </div>
         <div className="mb-3">
           Already have an account?{" "}
-          <Link to={`/signin?redirect=${redirect}`}>Sign In</Link>
+          <Link to={`/signin?redirect=${redirect}`}>Sign In &gt;</Link>
         </div>
       </Form>
     </Container>

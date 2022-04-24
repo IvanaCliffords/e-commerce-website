@@ -31,15 +31,32 @@ const Product = (props) => {
         <img src={product.image} alt={product.name} className="card-img-top" />
       </Link>
       <Card.Body>
-        <Link to={`/product/${product.slug}`}>
-          <Card.Title>{product.name}</Card.Title>
+        <Link to={`/product/${product.slug}`} className="product-link">
+          <span>{product.name}</span>
         </Link>
         <Rating rating={product.rating} numReviews={product.numReviews} />
-        <Card.Text>${product.price}</Card.Text>
+        <Card.Text className="product-price">
+          <span className="power-span">$</span>
+          {product.price}
+          <br />
+
+          <span className="delivery-date">
+            Est delievery:{" "}
+            <span className="delivery-date-span">Fri, Apr 20</span>
+          </span>
+        </Card.Text>
+
         {product.countInStock === 0 ? (
-          <Button variant="light" disabled>Out of stock</Button>
+          <Button variant="light" disabled>
+            Out of stock
+          </Button>
         ) : (
-          <Button onClick={() => addToCartHandler(product)}>Add to cart</Button>
+          <Button
+            onClick={() => addToCartHandler(product)}
+            className="product-button"
+          >
+            Add to cart
+          </Button>
         )}
       </Card.Body>
     </Card>
