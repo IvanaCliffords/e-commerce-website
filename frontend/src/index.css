@@ -283,3 +283,13 @@ li {
 .fa-search {
   color: #000 !important;
 }
+
+
+.footer-link {
+  color: #fff;
+  font-weight: 600;
+}
+
+.footer-link:hover {
+  color: #fff;
+}

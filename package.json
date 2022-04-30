@@ -1,0 +1,21 @@
+{
+  "name": "e-commerce-website",
+  "version": "1.0.0",
+  "description": "e-comm website made using react and node js",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd backend && npm install && cd ../frontend && npm install && npm run build",
+    "start": "node backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanaCliffords/e-commerce-website.git"
+  },
+  "author": "Ivana Cliffords",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IvanaCliffords/e-commerce-website/issues"
+  },
+  "homepage": "https://github.com/IvanaCliffords/e-commerce-website#readme"
+}
